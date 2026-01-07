@@ -13,29 +13,10 @@ class SplashView extends GetView<SplashController> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Container(
-              height: 90,
-              width: 90,
-              decoration: BoxDecoration(
-                color: Colors.deepPurple.shade50,
-                shape: BoxShape.circle,
-              ),
-              child: const Icon(
-                Icons.flight_takeoff,
-                size: 48,
-                color: Colors.deepPurple,
-              ),
+            Image.asset(
+              'assets/images/logo.png',
+              height: 150,
             ),
-            const SizedBox(height: 16),
-            const Text(
-              'FLIGHT KEY',
-              style: TextStyle(
-                fontSize: 24,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            const SizedBox(height: 20),
-            const CircularProgressIndicator(),
           ],
         ),
       ),

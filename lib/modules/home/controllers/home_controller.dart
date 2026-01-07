@@ -4,8 +4,9 @@ class HomeController extends GetxController {
   RxInt currentIndex = 0.obs;
 
   final List<String> titles = [
-    'Dashboard',
+    // 'Dashboard',
     'My Flights',
+    'New Flight',
     'Roles & Actions',
     'Plans & Pricing',
   ];

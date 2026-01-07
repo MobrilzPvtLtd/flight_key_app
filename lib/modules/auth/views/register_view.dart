@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-
+import 'package:get/get.dart';
+import '../../../app/routes/app_routes.dart';
 
 class RegistrationScreen extends StatelessWidget {
   const RegistrationScreen({super.key});
@@ -12,7 +13,7 @@ class RegistrationScreen extends StatelessWidget {
       backgroundColor: Colors.white,
       body: Stack(
         children: [
-          /// 🔵 Bottom Blue Curve Background
+          /// BLUE CURVED BACKGROUND
           Positioned(
             bottom: 0,
             child: Container(
@@ -27,9 +28,10 @@ class RegistrationScreen extends StatelessWidget {
             ),
           ),
 
-          /// 🔐 Registration Content
+          /// MAIN CONTENT
           SafeArea(
             child: SingleChildScrollView(
+              padding: const EdgeInsets.only(bottom: 40),
               child: Column(
                 children: [
                   const SizedBox(height: 30),
@@ -80,7 +82,8 @@ class RegistrationScreen extends StatelessWidget {
                                 borderRadius: BorderRadius.circular(8),
                               ),
                             ),
-                            onPressed: () {},
+                            onPressed: () {
+                            },
                             child: const Text(
                               'Apply',
                               style: TextStyle(
@@ -90,6 +93,35 @@ class RegistrationScreen extends StatelessWidget {
                               ),
                             ),
                           ),
+                        ),
+
+                        const SizedBox(height: 16),
+
+                        /// LOGIN NAVIGATION
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            const Text(
+                              'Already have an account? ',
+                              style: TextStyle(
+                                fontSize: 14,
+                                color: Colors.black54,
+                              ),
+                            ),
+                            GestureDetector(
+                              onTap: () {
+                                Get.offNamed(Routes.LOGIN);
+                              },
+                              child: const Text(
+                                'Login',
+                                style: TextStyle(
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.bold,
+                                  color: Color(0xFF004eab),
+                                ),
+                              ),
+                            ),
+                          ],
                         ),
                       ],
                     ),
@@ -105,6 +137,7 @@ class RegistrationScreen extends StatelessWidget {
     );
   }
 
+  /// INPUT FIELD
   Widget _inputField(String hint, {bool isPassword = false}) {
     return Padding(
       padding: const EdgeInsets.only(bottom: 15),
@@ -114,6 +147,8 @@ class RegistrationScreen extends StatelessWidget {
           hintText: hint,
           filled: true,
           fillColor: Colors.grey.shade100,
+          contentPadding:
+          const EdgeInsets.symmetric(horizontal: 14, vertical: 14),
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(8),
             borderSide: BorderSide.none,

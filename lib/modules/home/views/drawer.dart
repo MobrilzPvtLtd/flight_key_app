@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
+
+import '../../../app/routes/app_routes.dart';
 
 class AppDrawer extends StatefulWidget {
   const AppDrawer({super.key});
@@ -11,6 +15,7 @@ class _AppDrawerState extends State<AppDrawer> {
   @override
   Widget build(BuildContext context) {
     return Drawer(
+      backgroundColor: Colors.white,
       child: Column(
         children: [
           UserAccountsDrawerHeader(
@@ -30,10 +35,19 @@ class _AppDrawerState extends State<AppDrawer> {
             ),
           ),
 
-          _drawerItem(Icons.edit, 'Edit Profile', () {}),
+          _drawerItem(Icons.edit, 'Edit Profile', () {
+            Get.toNamed('/profile');
+          }),
           _drawerItem(Icons.share, 'Tell a Friend', () {}),
           _drawerItem(Icons.help_outline, 'Q&A', () {}),
-          _drawerItem(Icons.description, 'Terms & Conditions', () {}),
+          _drawerItem(
+            Icons.description,
+            'Terms & Conditions',
+                () {
+              Get.back(); // close drawer
+              Get.toNamed(Routes.TERMS);
+            },
+          ),
           _drawerItem(Icons.contact_mail, 'Contact', () {}),
 
           const Spacer(),

@@ -3,8 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../controllers/home_controller.dart';
+import '../tabs/add_flight.dart';
 import '../tabs/dashboard.dart';
-import '../tabs/flights_tab.dart';
+import '../tabs/my_flights_tab.dart';
 import '../tabs/pricing_tab.dart';
 import '../tabs/roles_tab.dart';
 
@@ -15,8 +16,9 @@ class HomeView extends StatelessWidget {
   final HomeController controller = Get.put(HomeController());
 
   final pages = [
-    const DashboardTab(),
-    const FlightsTab(),
+    // const DashboardTab(),
+     MyFlightsScreen(),
+    const AddFlightScreen(),
     const RolesTab(),
     const PricingTab(),
   ];
@@ -27,19 +29,18 @@ class HomeView extends StatelessWidget {
       drawer: const AppDrawer(),
       appBar: AppBar(
         backgroundColor: const Color(0xFF1b7bcd),
+        iconTheme: const IconThemeData(
+          color: Colors.white,
+        ),
+
         title: Obx(
               () => Text(
             controller.currentTitle,
             style: const TextStyle(color: Colors.white),
           ),
         ),
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.add, color: Colors.white),
-            onPressed: () {},
-          ),
-        ],
       ),
+
 
       body: Obx(() => pages[controller.currentIndex.value]),
       bottomNavigationBar: Obx(
@@ -51,13 +52,17 @@ class HomeView extends StatelessWidget {
           unselectedItemColor: Colors.white70,
           type: BottomNavigationBarType.fixed,
           items: const [
-            BottomNavigationBarItem(
-              icon: Icon(Icons.dashboard),
-              label: 'Dashboard',
-            ),
+            // BottomNavigationBarItem(
+            //   icon: Icon(Icons.dashboard),
+            //   label: 'Dashboard',
+            // ),
             BottomNavigationBarItem(
               icon: Icon(Icons.flight),
               label: 'My Flights',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.add),
+              label: 'New Flight',
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.security),

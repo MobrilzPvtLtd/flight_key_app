@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
+
+import '../../../app/routes/app_routes.dart';
 
 class PricingTab extends StatelessWidget {
   const PricingTab({super.key});
@@ -24,18 +28,6 @@ class PricingTab extends StatelessWidget {
         padding: const EdgeInsets.all(16),
         child: Column(
           children: [
-            const SizedBox(height: 20),
-
-            /// TITLE
-            const Text(
-              'Plans & Pricing',
-              style: TextStyle(
-                fontSize: 22,
-                fontWeight: FontWeight.bold,
-                color: Colors.white,
-              ),
-            ),
-
             const SizedBox(height: 30),
 
             /// ONE TIME PLANS
@@ -137,7 +129,7 @@ class _OneTimePlanCard extends StatelessWidget {
                 ),
               ),
               onPressed: () {
-                // TODO: payment
+                // Get.toNamed(Routes.PAYEMENT);
               },
               child: const Text('Buy Now'),
             ),
